@@ -19,16 +19,31 @@ namespace TDDBC
 
         public string ViewLastTodo()
         {
+            if ( 0 == this._list.Count() )
+            {
+                return "";
+            }
             return this._list.LastOrDefault().TaskName;
         }
 
         public string ViewFirstToDo()
-       {
-           return "最初のTODO";
+        {
+            if ( 0 == this._list.Count() )
+            {
+                return "";
+            }
+            return "最初のTODO";
         }
 
         public List<String> ViewAllToDo()
         {
+            if ( 0 == this._list.Count() )
+            {
+                return new List<String>()
+                {
+                    ""
+                };
+            }
             return new List<String>() { 
                 "最初のTODO", "2つめのTODO" 
             };

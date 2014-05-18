@@ -8,6 +8,27 @@ namespace UnitTestProject1
     public class UnitTest1
     {
         [TestMethod]
+        public void 何もTODOを入れないと最後に入れたTODOが空っぽ()
+        {
+            var todoList = new ToDoList();
+            todoList.ViewLastTodo().Is( "" );
+        }
+
+        [TestMethod]
+        public void 何もTODOを入れないと最初に入れたTODOが空っぽ()
+        {
+            var todoList = new ToDoList();
+            todoList.ViewFirstToDo().Is( "" );
+        }
+
+        [TestMethod]
+        public void 何もTODOを入れないとTODO一覧が空っぽ()
+        {
+            var todoList = new ToDoList();
+            todoList.ViewAllToDo().Is( "" );
+        }
+
+        [TestMethod]
         public void ToDoを１つ足してそのToDoが取得できる()
         {
             var sut = new TDDBC.ToDoList();
