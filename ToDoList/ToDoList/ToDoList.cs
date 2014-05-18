@@ -11,6 +11,18 @@ namespace TDDBC
 
         private List<Todo> _list = new List<Todo>();
 
+        private bool hasNoToDo()
+        {
+            if (this._list.Count ==0)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+
+
         public void Add(Todo todo)
         {
             _list.Add(todo);
@@ -19,7 +31,7 @@ namespace TDDBC
 
         public string ViewLastTodo()
         {
-            if ( 0 == this._list.Count() )
+            if ( this.hasNoToDo() )
             {
                 return "";
             }
@@ -28,7 +40,7 @@ namespace TDDBC
 
         public string ViewFirstToDo()
         {
-            if ( 0 == this._list.Count() )
+            if (this.hasNoToDo())
             {
                 return "";
             }
@@ -37,7 +49,7 @@ namespace TDDBC
 
         public List<String> ViewAllToDo()
         {
-            if ( 0 == this._list.Count() )
+            if (this.hasNoToDo())
             {
                 return new List<String>()
                 {
