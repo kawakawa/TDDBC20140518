@@ -37,6 +37,23 @@ namespace UnitTestProject1
         }
 
         [TestMethod]
+        public void ToDoを１つ足して最初のToDoが取得できる()
+        {
+            var sut = new TDDBC.ToDoList();
+            sut.Add(new Todo("最初のTODO_First"));
+            sut.ViewFirstToDo().Is("最初のTODO_First");
+        }
+
+        [TestMethod]
+        public void ToDoを１つ足して全部のToDoが取得できる()
+        {
+            var sut = new TDDBC.ToDoList();
+            sut.Add(new Todo("最初のTODO_ALL"));
+            sut.ViewAllToDo().Is("最初のTODO_ALL");
+        }
+
+
+        [TestMethod]
         public void ToDoを2つ足して最後のToDoが取得できる()
         {
             var todoList = new TDDBC.ToDoList();

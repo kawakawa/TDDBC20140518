@@ -44,7 +44,7 @@ namespace TDDBC
             {
                 return "";
             }
-            return "最初のTODO";
+            return this._list.FirstOrDefault().TaskName;
         }
 
         public List<String> ViewAllToDo()
@@ -56,9 +56,7 @@ namespace TDDBC
                     ""
                 };
             }
-            return new List<String>() { 
-                "最初のTODO", "2つめのTODO" 
-            };
+            return this._list.Select(n => n.TaskName).ToList();
         }
     }
 }
