@@ -7,7 +7,7 @@
     <ProjectGuid>{872BE447-36D1-43FE-B7B2-BA76739A851D}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ToDoList</RootNamespace>
+    <RootNamespace>TDDBC</RootNamespace>
     <AssemblyName>ToDoList</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
