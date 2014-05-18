@@ -16,5 +16,12 @@ namespace ToDoList
             this._taskName = taskName;
         }
 
+        public string TaskName
+        {
+            get
+            {
+                return this._taskName;
+            }
+        }
     }
 }
