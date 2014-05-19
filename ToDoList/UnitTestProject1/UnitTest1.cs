@@ -29,27 +29,27 @@ namespace UnitTestProject1
         }
 
         [TestMethod]
-        public void ToDoを１つ足してそのToDoが取得できる()
+        public void ToDoを１つ足して最後のToDoが取得できる()
         {
             var sut = new TDDBC.ToDoList();
-            sut.Add(new Todo("最初のTODO"));
-            sut.ViewLastTodo().Is("最初のTODO");
+            sut.Add(new Todo("最後のTODO"));
+            sut.ViewLastTodo().Is("最後のTODO");
         }
 
         [TestMethod]
         public void ToDoを１つ足して最初のToDoが取得できる()
         {
             var sut = new TDDBC.ToDoList();
-            sut.Add(new Todo("最初のTODO_First"));
-            sut.ViewFirstToDo().Is("最初のTODO_First");
+            sut.Add(new Todo("最初のTODO"));
+            sut.ViewFirstToDo().Is("最初のTODO");
         }
 
         [TestMethod]
         public void ToDoを１つ足して全部のToDoが取得できる()
         {
             var sut = new TDDBC.ToDoList();
-            sut.Add(new Todo("最初のTODO_ALL"));
-            sut.ViewAllToDo().Is("最初のTODO_ALL");
+            sut.Add(new Todo("TODO一覧"));
+            sut.ViewAllToDo().Is("TODO一覧");
         }
 
 
@@ -80,6 +80,46 @@ namespace UnitTestProject1
             sut.Add(new Todo("最初のTODO"));
             sut.Add(new Todo("2つめのTODO"));
             sut.ViewAllToDo().Is("最初のTODO", "2つめのTODO");
+        }
+
+        [TestMethod]
+        public void 最初に追加したTODOを削除できる()
+        {
+            var todoList = new ToDoList();
+            todoList.Add( new Todo( "First_TODO" ) );
+            todoList.Add( new Todo( "Second_TODO" ) );
+            todoList.DeleteFirstToDo();
+            todoList.ViewAllToDo().Is( "Second_TODO" );
+        }
+
+        [TestMethod]
+        public void 最後に追加したTODOを削除できる()
+        {
+            var todoList = new ToDoList();
+            todoList.Add( new Todo( "First_TODO" ) );
+            todoList.Add( new Todo( "Second_TODO" ) );
+            todoList.DeleteLastToDo();
+            todoList.ViewAllToDo().Is( "First_TODO" );
+        }
+
+        [TestMethod]
+        public void 追加したTODOを全て削除できる()
+        {
+            var todoList = new ToDoList();
+            todoList.Add( new Todo( "First_TODO" ) );
+            todoList.Add( new Todo( "Second_TODO" ) );
+            todoList.DeleteAllToDo();
+            todoList.ViewAllToDo().Is( "" );            
+        }
+
+        [TestMethod]
+        public void TODOの順序を入れ替えられる()
+        {
+            var todoList = new ToDoList();
+            todoList.Add( new Todo( "First_TODO" ) );
+            todoList.Add( new Todo( "Second_TODO" ) );
+            todoList.SwapToDo( 1, 2 );
+            todoList.ViewAllToDo().Is( "Second_TODO", "First_TODO" );
         }
     }
 }
